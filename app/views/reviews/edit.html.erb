@@ -1,0 +1,22 @@
+<h1>Edit Review</h1>
+
+<%= form_with model: @review, url: review_path(@review), method: :patch do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.label :rating %>
+    <%= form.number_field :rating %>
+  </div>
+
+  <%= form.submit %>
+<% end %>
+
+<%= link_to 'Back', reviews_path %>
