@@ -1,10 +1,13 @@
 <h1>hello from index</h1>
 
+<%= link_to "new planet ", new_planet_path %>
+
+
 
 <% @planets.each do |planet| %>
 <div class="card">
   <div class="title">
-    <h3><%= planet.name %></h3>
+    <h3><%= link_to planet.name, planet_path(planet) %></h3>
   </div>
   <div class="content">
     <p><%= planet.summary %></p>
