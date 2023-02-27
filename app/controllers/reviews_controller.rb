@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_user
+  before_action :set_review, only: [:edit, :update, :destroy]
 
   def index
     @reviews = Review.all
@@ -19,11 +20,9 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Review.find(params[:id])
   end
 
   def update
-    @review = Review.find(params[:id])
     if @review.update(review_params)
       redirect_to reviews_path
     else
@@ -32,7 +31,6 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(params[:id])
     @review.destroy
     redirect_to reviews_path
   end
@@ -45,5 +43,8 @@ class ReviewsController < ApplicationController
 
   def set_user
     @user = current_user
+  end
+  def set_review
+    @review = Review.find(params[:id])
   end
 end
