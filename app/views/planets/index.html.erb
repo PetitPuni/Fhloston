@@ -1,0 +1,15 @@
+<h1>hello from index</h1>
+
+
+<% @planets.each do |planet| %>
+<div class="card">
+  <div class="title">
+    <h3><%= planet.name %></h3>
+  </div>
+  <div class="content">
+    <p><%= planet.summary %></p>
+  </div>
+  <div class="footer">
+  </div>
+</div>
+<% end %>

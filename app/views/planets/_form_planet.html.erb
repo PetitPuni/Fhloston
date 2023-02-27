@@ -1,0 +1,12 @@
+<%= simple_form_for(planet) do |f| %>
+<%= f.input :name %>
+<%= f.input :catch_phrase %>
+<%= f.input :summary %>
+<%= f.input :type %>
+<%= f.input :inhabitant %>
+<%= f.input :available_places %>
+<%= f.input :location %>
+<%= f.input :price %>
+<%= f.input :photo, as: :file %>
+<%= f.submit 'Add a new list', class: 'btn btn-success' %>
+<% end %>
