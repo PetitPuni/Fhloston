@@ -1,7 +1,31 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+require 'faker'
+
+Planet.destroy_all
+User.destroy_all
+
+puts 'DB start'
+user1 = User.create(
+  email: 'tata@gmail.com',
+  password: 'azerty'
+)
+
+user2 = User.create(
+  email: 'toto@gmail.com',
+  password: 'azerty'
+)
+
+50.times do
+  Planet.create!(
+    name: Faker::Space.star,
+    planet_type: ['Carbon planet', 'Gas dwarf', 'Desert planet', 'Gas giant', 'Helium planet', 'Ice giant', 'Iron planet', 'Lava planet'].sample,
+    summary: Faker::Restaurant.description,
+    inhabitants: [1..7_000_000_000].sample,
+    available_places: [1..5].sample,
+    location: Faker::Space.galaxy,
+    catch_phrase: Faker::Company.catch_phrase,
+    price: [1..20_000],
+    user: [user1, user2].sample
+  )
+end
+
+puts 'DB finished'
