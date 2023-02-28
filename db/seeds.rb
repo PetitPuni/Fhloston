@@ -1,15 +1,17 @@
 require 'faker'
+puts 'destroying db'
 
 Planet.destroy_all
 User.destroy_all
 
-puts 'DB start'
-user1 = User.create(
+puts 'creating db'
+
+user1 = User.create!(
   email: 'tata@gmail.com',
   password: 'azerty'
 )
 
-user2 = User.create(
+user2 = User.create!(
   email: 'toto@gmail.com',
   password: 'azerty'
 )
@@ -27,5 +29,6 @@ user2 = User.create(
     user: [user1, user2].sample
   )
 end
+
 
 puts 'DB finished'
