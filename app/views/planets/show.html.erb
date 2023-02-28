@@ -1,13 +1,14 @@
-    <h1><%= planet.name %></h1>
+    <h1><%= @planet.name %></h1>
 
     <div class="container">
-      <p><%= planet.summary%></p>
-      <p><%= planet.summary%></p>
-      <p><%= planet.type%></p>
-      <p><%= planet.inhabitant%></p>
-      <p><%= planet.available_places%></p>
-      <p><%= planet.location%></p>
-      <p><%= planet.price %></p>
+      <p><%= @planet.summary%></p>
+      <p><%= @planet.planet_type%></p>
+      <p><%= @planet.inhabitants%></p>
+      <p><%= @planet.available_places%></p>
+      <p><%= @planet.location%></p>
+      <p><%= @planet.price %></p>
     </div>
 
+<%= render 'form_booking' %>
 <%= link_to "Back", planets_path %>
+<% console %>
