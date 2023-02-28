@@ -8,5 +8,5 @@
 <%= f.input :location, collection: ["Triangulum", "Pinwheel", "Whirlpool", "Andromeda", "Centaurus A", "Milky Way", "Messier 83", "Hoags Object","Sunflower"], error: 'The location of your planet is mandatory, please specify one.', prompt: 'Select a location'%>
 <%= f.input :price, placeholder: 'Choose a price for your rental', error: 'A summary of your rental is mandatory, please specify one.', as: :integer, input_html: { min: '0', max: '20000', step: '1000' } %>
 <%= f.input :photos, as: :file %>
-<%= f.submit 'Add a new new planet', class: 'btn btn-success' %>
+<%= f.submit 'Add a new planet', class: 'btn btn-success' %>
 <% end %>

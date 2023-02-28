@@ -6,7 +6,7 @@ class Planet < ApplicationRecord
 
   validates :name, presence: true
   validates :planet_type, presence: true
-  validates :catch_phrase, presence: true, length: { minimum: 50 }
+  validates :catch_phrase, presence: true, length: { minimum: 20 }
   validates :summary, presence: true, length: { in: 100..600 }
   validates :inhabitants,  numericality: { only_integer: true, in: (1..7_000_000_000) }
   validates :available_places, numericality: { only_integer: true, in: (1..5) }

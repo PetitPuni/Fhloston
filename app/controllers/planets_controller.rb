@@ -1,7 +1,7 @@
 class PlanetsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   before_action :params_planet, only: [:update, :create]
-  before_action :set_planet, only: [:delete, :show, :edit]
+  before_action :set_planet, only: [:destroy, :show, :edit]
 
   def index
     @planets = Planet.all
@@ -33,8 +33,8 @@ class PlanetsController < ApplicationController
     redirect_to planet_path(@planet)
   end
 
-  def delete
-    @planet.destroy
+  def destroy
+    @planet.delete
     redirect_to planets_path
   end
 
