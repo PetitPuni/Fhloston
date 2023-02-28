@@ -1,4 +1,5 @@
 class PlanetsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   before_action :params_planet, only: [:update, :create]
   before_action :set_planet, only: [:delete, :show, :edit]
 
