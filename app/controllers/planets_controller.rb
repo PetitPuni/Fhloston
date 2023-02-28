@@ -17,11 +17,11 @@ class PlanetsController < ApplicationController
 
   def create
     @planet = Planet.new(params_planet)
-    @planet.user = @user
-    if @planet.save
+    @planet.user = current_user
+    if @planet.save!
       redirect_to planet_path(@planet)
     else
-      render new_planet_path, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -45,6 +45,8 @@ class PlanetsController < ApplicationController
   end
 
   def params_planet
-    params.require(:planet).permit(:name, :photo, :planet_type, :summary, :inhabitants, :available_places, :location, :catch_phrase, :price)
+    params.require(:planet).permit(:name, :planet_type, :summary, :inhabitants,
+                                   :available_places, :location, :catch_phrase,
+                                   :price, photos: [])
   end
 end
