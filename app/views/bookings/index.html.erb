@@ -1,0 +1,18 @@
+<h1>My Bookings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Planets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.user.email %></td>
+        <td><%= booking.planet.name %></td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

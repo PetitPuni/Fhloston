@@ -1,12 +1,14 @@
 class PlanetsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :params_planet, only: [:show, :edit, :delete]
+  before_action :params_planet, only: [:update, :create]
+  before_action :set_planet, only: [:delete, :show, :edit]
 
   def index
     @planets = Planet.all
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
@@ -45,5 +47,4 @@ class PlanetsController < ApplicationController
   def params_planet
     params.require(:planet).permit(:name, :photo, :planet_type, :summary, :inhabitants, :available_places, :location, :catch_phrase, :price)
   end
-
 end
