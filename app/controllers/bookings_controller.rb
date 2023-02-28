@@ -9,9 +9,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @booking.user = current_user
     if @booking.save
-      redirect_to planet_path(@planet)
+      redirect_to bookings_path(@planet)
     else
-      redirect_to new_planet_booking_path
+      redirect_to planet_bookings_path
     end
   end
 
