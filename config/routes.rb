@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   devise_for :users
   resources :planets do
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:index, :destroy]
   resources :users, only: [:show]

@@ -1,0 +1,23 @@
+<h1>My Bookings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Planet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.user.email %></td>
+        <td><%= booking.planet.name %></td>
+          <%= link_to "Edit", edit_booking_path(booking) %>
+          <%= link_to "Delete", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New Booking", new_planet_booking_path(@planet) %>
