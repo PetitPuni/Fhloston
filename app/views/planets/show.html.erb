@@ -10,4 +10,8 @@
       <p><%= planet.price %></p>
     </div>
 
+<%= link_to "Delete",
+    planet_path(planet),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
 <%= link_to "Back", planets_path %>
