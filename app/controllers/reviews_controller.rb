@@ -11,12 +11,13 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Reviews.new(review_params)
+    @review = Review.new(review_params)
     @review.user = @user
+    @planet = Planet.find(params[:planet_id])
     if @review.save
-      redirect_to reviews_path
+      redirect_to planet_path(@planet)
     else
-      render 'new'
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -25,15 +26,15 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to reviews_path
+      redirect_to planet_path(@planet)
     else
-      render 'edit'
+      render edit: :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @review.destroy
-    redirect_to reviews_path
+    redirect_to planet_path(@planet)
   end
 
   private

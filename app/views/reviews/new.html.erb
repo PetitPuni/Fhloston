@@ -9,7 +9,7 @@
 
   <div>
     <%= form.label :rating %>
-    <%= form.number_field :rating %>
+    <%= form.number_field :rating, as: :integer, input_html: { min: '0', max: '5', step: '1' }, placeholder: 'Rate Your Stay.' %>
   </div>
 
   <%= form.submit %>
