@@ -7,6 +7,6 @@
 <%= f.input :available_places, error: 'Available places should be a number', as: :integer, input_html: { min: '0', max: '5', step: '1' }, placeholder: 'Choose the number of available places on your planet.' %>
 <%= f.input :location, collection: ["Triangulum", "Pinwheel", "Whirlpool", "Andromeda", "Centaurus A", "Milky Way", "Messier 83", "Hoags Object","Sunflower"], error: 'The location of your planet is mandatory, please specify one.', prompt: 'Select a location'%>
 <%= f.input :price, placeholder: 'Choose a price for your rental', error: 'A summary of your rental is mandatory, please specify one.', as: :integer, input_html: { min: '0', max: '20000', step: '1000' } %>
-<%= f.input :photo, as: :file %>
-<%= f.submit 'Add a new list', class: 'btn btn-success' %>
+<%= f.input :photos, as: :file %>
+<%= f.submit 'Add a new new planet', class: 'btn btn-success' %>
 <% end %>
