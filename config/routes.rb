@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root to: "planets#index"
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
   resources :planets do
     resources :bookings, only: [:create]
   end
