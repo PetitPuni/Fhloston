@@ -11,7 +11,11 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
+    <header>
+      <%= render "shared/navbar" %>
+      <%= image_tag 'astroboy.svg', alt: "astonaute", class: "astroboy" %>
+      <%= render "shared/searchbar" %>
+    </header>
     <%= render "shared/flashes" %>
     <%= yield %>
   </body>
