@@ -18,7 +18,7 @@ class PlanetsController < ApplicationController
   def create
     @planet = Planet.new(params_planet)
     @planet.user = current_user
-    if @planet.save!
+    if @planet.save
       redirect_to planet_path(@planet)
     else
       render :new, status: :unprocessable_entity
@@ -26,14 +26,12 @@ class PlanetsController < ApplicationController
   end
 
   def edit
-    @planet = Planet.find(params[:id])
     if @planet.user != current_user
       redirect_to planet_path(@planet), notice: "You have no permission to edit this planet"
     end
   end
 
   def update
-    @planet.update(params_planet)
     if @planet.user != current_user
       redirect_to planet_path(@planet), notice: "You don't have the permission to edit this planet"
     else
@@ -47,19 +45,19 @@ class PlanetsController < ApplicationController
 
   def destroy
     @planet.photo.purge
-    @planet.delete
+    @planet.destroy
     redirect_to planets_path
   end
 
   private
 
-  def set_planet
-    @planet = Planet.find(params[:id])
-  end
-
   def params_planet
     params.require(:planet).permit(:name, :planet_type, :summary, :inhabitants,
                                    :available_places, :location, :catch_phrase,
                                    :price, photos: [])
+  end
+
+  def set_planet
+    @planet = Planet.find(params[:id])
   end
 end

@@ -29,4 +29,10 @@
 
 <%= link_to "Edit", edit_planet_path %>
 <%= link_to "Back", planets_path %>
-<%= link_to "reviews", reviews_path %>
+<%= link_to "New Reviews", new_planet_review_path(@planet) %>
+
+<% @planet.bookings.each do |booking| %>
+  <% if booking.review %>
+    <%= booking.review.comment %>
+  <% end %>
+<% end %>

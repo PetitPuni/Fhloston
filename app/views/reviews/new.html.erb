@@ -1,18 +1,34 @@
-<h1>New Review</h1>
+<% if @planet %>
+  <h1>Leave a Review for <%= @planet.name %></h1>
+<% else %>
+  <h1>Leave a Review</h1>
+<% end %>
 
-<%= form_with model: @review, url: reviews_path do |form| %>
+<%= form_with model: [@planet, @review] do |form| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+      <ul>
+        <% @review.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <div>
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
   </div>
 
   <div>
-    <%= form.label :rating %>
-    <%= form.number_field :rating, as: :integer, input_html: { min: '0', max: '5', step: '1' }, placeholder: 'Rate Your Stay.' %>
+    <%= form.label :grade %>
+    <%= form.number_field :grade, min: '0', max: '5', step: '1', placeholder: 'rate your stay' %>
+
+
   </div>
 
   <%= form.submit %>
 <% end %>
 
-<%= link_to 'Back', reviews_path %>
+<%= link_to 'Back', planet_path(@planet) %>
