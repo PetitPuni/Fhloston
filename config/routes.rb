@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:edit, :update, :index, :destroy]
   resources :users, only: [:show]
-  resources :review
+  resources :reviews
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -35,15 +35,17 @@
     <% end %>
 </div>
 
-<% current_user.planets.all.each do |planet| %>
-<h4><%= "My bookings for #{planet.name}"  %></h4>
-<% planet.bookings.all.each do |booking|%>
 <div>
-  <li><%= booking.user.email %></li>
-          <li><%= booking.planet.location %></li>
-          <li><%= booking.start_date %></li>
-          <li><%= booking.planet.price %></li>
-          <li><%= booking.planet.available_places %></li>
+  <% current_user.planets.all.each do |planet| %>
+    <h4><%= "My bookings for #{planet.name}"  %></h4>
+    <% planet.bookings.all.each do |booking|%>
+      <div>
+        <li><%= booking.user.email %></li>
+        <li><%= booking.planet.location %></li>
+        <li><%= booking.start_date %></li>
+        <li><%= booking.planet.price %></li>
+        <li><%= booking.planet.available_places %></li>
+      </div>
+    <% end  %>
+  <% end  %>
 </div>
-<% end  %>
-<% end  %>
