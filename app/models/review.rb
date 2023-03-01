@@ -1,5 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :booking
+  has_one :planet, through: :booking
 
   validates :comment, presence: true
   validates :grade, presence: true
@@ -7,6 +8,6 @@ class Review < ApplicationRecord
   validates :grade, inclusion: { in: 0..5 }
 
   def self.user_has_reservation_for_planet?(user, planet)
-    Booking.where("bookings.user_id = ? && bookings.planet_id = ?", user.id, planet.id)
+    Booking.where(user: user, planet: planet).exists?
   end
 end
