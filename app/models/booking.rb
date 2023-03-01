@@ -3,6 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :planet
   has_one :review
 
+
   scope :upcomming, -> { where('start_date >= ?', DateTime.now) }
   scope :past, -> { where('start_date <= ?', DateTime.now) }
 end
