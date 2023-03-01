@@ -1,18 +1,15 @@
 <h1>Escape to your own private planet with our out-of-this-world experience!</h1>
 
 <%= link_to "new planet ", new_planet_path %>
-
-
-
-<% @planets.each do |planet| %>
-<div class="card">
-  <div class="title">
-    <h3><%= link_to planet.name, planet_path(planet) %></h3>
+<div class = "card-grid">
+  <% @planets.each do |planet| %>
+  <div class="card-item">
+    <div class="title">
+      <h3><%= link_to planet.name, planet_path(planet) %></h3>
+    </div>
+    <div class="catch">
   </div>
-  <div class="catch">
-
-  </div>
-  <div class="image">
+  <div class="card-img">
     <% if planet.photos.attached? %>
       <% planet.photos.each do |photo| %>
         <%=  image_tag cl_image_path(photo.key, height: 300, crop: :fill)%>
@@ -21,8 +18,9 @@
       <%=  image_tag asset_path( 'default-planet.jpg') %>
     <% end %>
   </div>
-  <div class="content">
-    <p><%= planet.summary %></p>
+  <div class="card-content">
+    <p><%= planet.planet_type %></p>
+    <p><%= planet.price %></p>
   </div>
   <div class="footer">
   </div>
