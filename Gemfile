@@ -84,3 +84,6 @@ group :test do
 end
 
 gem 'faker'
+gem "omniauth-google-oauth2"
+gem "omniauth"
+gem "omniauth-rails_csrf_protection"

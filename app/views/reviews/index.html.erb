@@ -1,4 +1,8 @@
-<h1>Reviews</h1>
+<% if @planet %>
+  <h1>Reviews for <%= @planet.name %></h1>
+<% else %>
+  <h1>All Reviews</h1>
+<% end %>
 
 <ul>
   <% @reviews.each do |review| %>
@@ -9,5 +13,5 @@
   <% end %>
 </ul>
 
-<%= link_to 'New Review', new_review_path %>
- <%= link_to "list of planets", planets_path %>
+<%= link_to 'New Review', new_planet_review_path(@planet) %>
+<%= link_to "list of planets", planets_path %>

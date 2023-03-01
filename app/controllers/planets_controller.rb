@@ -54,18 +54,17 @@ class PlanetsController < ApplicationController
     @planet.photo.purge
     @planet.delete
     authorize @planet
-    redirect_to planets_path
   end
 
   private
-
-  def set_planet
-    @planet = Planet.find(params[:id])
-  end
 
   def params_planet
     params.require(:planet).permit(:name, :planet_type, :summary, :inhabitants,
                                    :available_places, :location, :catch_phrase,
                                    :price, photos: [])
+  end
+
+  def set_planet
+    @planet = Planet.find(params[:id])
   end
 end

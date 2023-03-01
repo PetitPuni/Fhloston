@@ -20,7 +20,7 @@
     </div>
 
 
-<%= render 'form_booking' %>
+<%= render "form_booking" %>
 <%= link_to "Delete your planet",
     planet_path(@planet),
     data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } if policy(@planet).destroy?
@@ -31,4 +31,10 @@
 <%= link_to "Edit", edit_planet_path %>
 <% end %>
 <%= link_to "Back", planets_path %>
-<%= link_to "reviews", reviews_path %>
+<%= link_to "New Reviews", new_planet_review_path(@planet) %>
+
+<% @planet.bookings.each do |booking| %>
+  <% if booking.review %>
+    <%= booking.review.comment %>
+  <% end %>
+<% end %>
