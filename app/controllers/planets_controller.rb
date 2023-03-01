@@ -26,14 +26,25 @@ class PlanetsController < ApplicationController
   end
 
   def edit
+    def edit
+      @planet = Planet.find(params[:id])
+      if @planet.user != current_user
+        redirect_to planet_path(@planet), notice: "You have no permission to edit this planet"
+      end
+    end
+    
   end
 
   def update
-    if @planet.update(params_planet)
-      @planet.user = current_user
-      redirect_to planet_path(@planet)
+    @planet.update(params_planet)
+    if @planet.user != current_user
+      redirect_to planet_path(@planet), notice: "You don't have the permission to edit this planet"
     else
-      render :new, status: :unprocessable_entity
+      if @planet.update(params_planet)
+        redirect_to planet_path(@planet)
+      else
+        render :new, status: :unprocessable_entity
+      end
     end
   end
 
