@@ -49,6 +49,7 @@ class PlanetsController < ApplicationController
   end
 
   def destroy
+    @planet.photo.purge
     @planet.delete
     redirect_to planets_path
   end
