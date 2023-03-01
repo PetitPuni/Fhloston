@@ -49,6 +49,8 @@ gem "devise"
 
 gem "cloudinary"
 
+gem "pundit"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -82,3 +84,6 @@ group :test do
 end
 
 gem 'faker'
+gem "omniauth-google-oauth2"
+gem "omniauth"
+gem "omniauth-rails_csrf_protection"

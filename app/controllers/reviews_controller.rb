@@ -1,23 +1,36 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user
-  before_action :set_review, only: [:edit, :update, :destroy]
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
 
   def index
-    @reviews = Review.all
+    @planet = Planet.find(params[:planet_id])
+    @reviews = @planet.reviews
   end
 
   def new
-    @review = Review.new
+    @planet = Planet.find(params[:planet_id])
+    if Review.user_has_reservation_for_planet?(@user, @planet)
+      @review = Review.new
+    else
+      redirect_to @planet, alert: "You can't leave a review for this planet without a reservation."
+    end
   end
 
   def create
-    @review = Review.new(review_params)
-    @review.user = @user
     @planet = Planet.find(params[:planet_id])
-    if @review.save
-      redirect_to planet_path(@planet)
+    booking = @planet.bookings.where(user: @user).first
+
+    if booking.present?
+      @review = Review.new(review_params)
+      @review.booking = booking
+      if @review.save
+        redirect_to planet_path(@planet)
+      else
+        render :new, status: :unprocessable_entity
+      end
     else
-      render :new, status: :unprocessable_entity
+      redirect_to @planet, alert: "You can't leave a review for this planet without a reservation."
     end
   end
 
@@ -26,26 +39,33 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to planet_path(@planet)
+      redirect_to planet_path(@review.planet)
     else
-      render edit: :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @review.destroy
-    redirect_to planet_path(@planet)
+    redirect_to planet_path(@review.planet)
+  end
+
+  def show
+    @planet = Planet.find(params[:planet_id])
+    @booking = Booking.new
+    @reviews = Review.where(planet: @planet)
   end
 
   private
 
   def review_params
-    params.require(:review).permit(:comment, :grade).merge(planet_id: params[:planet_id])
+    params.require(:review).permit(:comment, :grade)
   end
 
   def set_user
     @user = current_user
   end
+
   def set_review
     @review = Review.find(params[:id])
   end

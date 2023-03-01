@@ -1,0 +1,19 @@
+<h1>Review of <%= @planet.name %></h1>
+
+<div class="review">
+  <div class="review-header">
+    <div class="review-user">
+      <h3>Reviewed by <%= @review.user.name %></h3>
+    </div>
+    <div class="review-rating">
+      <p>Grade: <%= @review.grade %>/5</p>
+    </div>
+  </div>
+  <div class="review-body">
+    <p><%= @review.comment %></p>
+  </div>
+</div>
+
+<div class="actions">
+  <%= link_to "Back to planet", planet_path(@planet), class: "button" %>
+</div>

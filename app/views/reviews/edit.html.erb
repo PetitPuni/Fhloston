@@ -1,22 +1,17 @@
 <h1>Edit Review</h1>
 
-<%= form_with model: @review, url: review_path(@review), method: :patch do |form| %>
+<%= form_with model: [@planet, @review], url: planet_review_path(@planet, @review), method: :patch do |form| %>
   <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
   </div>
 
   <div>
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div>
-    <%= form.label :rating %>
-    <%= form.number_field :rating %>
+    <%= form.label :grade %>
+    <%= form.number_field :grade, in: 1..5, step: 1 %>
   </div>
 
   <%= form.submit %>
 <% end %>
 
-<%= link_to 'Back', reviews_path %>
+<%= link_to 'Back', planet_review_path(@planet, @review) %>

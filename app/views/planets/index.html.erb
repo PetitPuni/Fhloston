@@ -1,3 +1,4 @@
+
 <div class="title"><h1>Escape to your own private planet with our out-of-this-world experience!</h1></div>
 <div class="btn-flat"><%= link_to "NEW PLANET", new_planet_path %></div>
 <div class = "card-grid">
@@ -7,6 +8,16 @@
       <h3><%= link_to planet.name, planet_path(planet) %></h3>
     </div>
     <div class="catch">
+
+<h1>Escape to your own private planet with our out-of-this-world experience!</h1>
+
+<%= link_to "new planet ", new_planet_path %>
+
+<% @planets.each do |planet| %>
+<div class="card">
+  <div class="title">
+    <h3><%= link_to planet.name, planet_path(planet) %></h3>
+
   </div>
   <div class="card-img">
     <% if planet.photos.attached? %>
