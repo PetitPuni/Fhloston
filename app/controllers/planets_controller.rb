@@ -4,7 +4,7 @@ class PlanetsController < ApplicationController
   before_action :set_planet, only: [:destroy, :show, :edit, :update]
 
   def index
-    @planets = policy_scope(Planet.all)
+    @planets = Planet.all
   end
 
   def show
