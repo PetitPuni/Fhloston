@@ -5,26 +5,26 @@
 
 
 <% @planets.each do |planet| %>
-<div class="card">
-  <div class="title">
-    <h3><%= link_to planet.name, planet_path(planet) %></h3>
-  </div>
-  <div class="catch">
+  <div class="card">
+    <div class="title">
+      <h3><%= link_to planet.name, planet_path(planet) %></h3>
+    </div>
+    <div class="catch">
 
-  </div>
-  <div class="image">
-    <% if planet.photos.attached? %>
-      <% planet.photos.each do |photo| %>
-        <%=  image_tag cl_image_path(photo.key, height: 300, crop: :fill)%>
+    </div>
+    <div class="image">
+      <% if planet.photos.attached? %>
+        <% planet.photos.each do |photo| %>
+          <%=  image_tag cl_image_path(photo.key, height: 300, crop: :fill)%>
         <% end %>
-    <% else %>
-      <%=  image_tag asset_path( 'default-planet.jpg') %>
-    <% end %>
+      <% else %>
+        <%=  image_tag asset_path( 'default-planet.jpg') %>
+      <% end %>
+    </div>
+    <div class="content">
+      <p><%= planet.summary %></p>
+    </div>
+    <div class="footer">
+    </div>
   </div>
-  <div class="content">
-    <p><%= planet.summary %></p>
-  </div>
-  <div class="footer">
-  </div>
-</div>
 <% end %>

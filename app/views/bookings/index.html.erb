@@ -7,12 +7,12 @@
         <ul><%= booking.planet.name %>
      </div>
        <div>
-          <li><%= booking.user.email %></li>
+          <li><%= booking.user.username %></li>
           <li><%= booking.planet.location %></li>
           <li><%= booking.start_date %></li>
           <li><%= booking.planet.price %></li>
           <li><%= booking.planet.available_places %></li>
-          <li><%#= image_tag cl_image_path booking.planet.photos.first.key %></li>
+          <li><%=booking.planet.photos.attached? ? (image_tag cl_image_path(booking.planet.photos.first.key)) : (image_tag image_path('default-planet.jpg'))  %></li>
         </div>
       </ul>
     <% end %>
@@ -24,11 +24,12 @@
         <ul><%= booking.planet.name %>
     </div>
       <div>
-          <li><%= booking.user.email %></li>
+          <li><%= booking.user.username %></li>
           <li><%= booking.planet.location %></li>
           <li><%= booking.start_date %></li>
           <li><%= booking.planet.price %></li>
           <li><%= booking.planet.available_places %></li>
+          <li><%=booking.planet.photos.attached? ? (image_tag cl_image_path(booking.planet.photos.first.key)) : (image_tag image_path('default-planet.jpg'))  %></li>
         </div>
       </ul>
     <% end %>
@@ -36,16 +37,20 @@
 
 <div>
   <% current_user.planets.all.each do |planet| %>
-    <ul><h4><%= "My bookings for #{planet.name}"  %></h4>
-    <% planet.bookings.all.each do |booking|%>
+    <% unless planet.bookings.empty? %>
+      <ul><h4><%= "My bookings for #{planet.name}"  %></h4>
+      <% planet.bookings.all.each do |booking|%>
       <div>
-        <li><%= booking.user.email %></li>
-        <li><%= booking.planet.location %></li>
-        <li><%= booking.start_date %></li>
-        <li><%= booking.planet.price %></li>
-        <li><%= booking.planet.available_places %></li>
+          <li><%= booking.user.username %></li>
+          <li><%= booking.planet.location %></li>
+          <li><%= booking.start_date %></li>
+          <li><%= booking.planet.price %></li>
+          <li><%= booking.planet.available_places %></li>
+          <li><%=booking.planet.photos.attached? ? (image_tag cl_image_path(booking.planet.photos.first.key)) : (image_tag image_path('default-planet.jpg'))  %></li>
       </div>
-     </ul>
     <% end  %>
+    </ul>
+    <% end %>
   <% end  %>
 </div>
+<% console %>
