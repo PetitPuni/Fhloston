@@ -1,5 +1,15 @@
     <h1><%= @planet.name %></h1>
 
+    <div class="image">
+    <% if @planet.photos.attached? %>
+      <% @planet.photos.each do |photo| %>
+        <%=  image_tag cl_image_path(photo.key, height: 300, crop: :fill)%>
+        <% end %>
+    <% else %>
+      <%=  image_tag asset_path( 'default-planet.jpg') %>
+    <% end %>
+  </div>
+
     <div class="container">
       <p><%= @planet.summary%></p>
       <p><%= @planet.planet_type%></p>
