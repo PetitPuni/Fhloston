@@ -26,13 +26,10 @@ class PlanetsController < ApplicationController
   end
 
   def edit
-    def edit
-      @planet = Planet.find(params[:id])
-      if @planet.user != current_user
-        redirect_to planet_path(@planet), notice: "You have no permission to edit this planet"
-      end
+    @planet = Planet.find(params[:id])
+    if @planet.user != current_user
+      redirect_to planet_path(@planet), notice: "You have no permission to edit this planet"
     end
-    
   end
 
   def update

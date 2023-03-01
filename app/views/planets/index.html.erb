@@ -1,5 +1,14 @@
 <h1>Escape to your own private planet with our out-of-this-world experience!</h1>
 
+<% if current_user %>
+<%= current_user.email %>
+<%= link_to 'Edit Account', edit_user_registration_path %>
+<%= button_to "Logout", destroy_user_session_path, date: {turbo: "false"}, method: :delete %>
+<% else  %>
+<%= link_to "Login", new_user_session_path %>
+<%= link_to "Create Account", new_user_registration_path %>
+<% end %>
+
 <%= link_to "new planet ", new_planet_path %>
 
 
