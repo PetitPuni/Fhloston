@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     @booking.planet = @planet
     @booking.user = current_user
     if @booking.save
-      redirect_to bookings_path(@planet)
+      redirect_to bookings_path
     else
       render "planets/show", status: :unprocessable_entity
     end
