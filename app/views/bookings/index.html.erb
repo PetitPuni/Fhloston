@@ -1,18 +1,51 @@
-<h1>My Bookings</h1>
+<div><h1>My Bookings</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Planets</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bookings.each do |booking| %>
-      <tr>
-        <td><%= booking.user.email %></td>
-        <td><%= booking.planet.name %></td>
-        <td><%= booking.start_date %></td>
-      </tr>
+<div>
+  <h4>Upcomming bookings</h4>
+    <% @upcomming_bookings.each do |booking| %>
+     <div>
+        <ul><%= booking.planet.name %>
+     </div>
+       <div>
+          <li><%= booking.user.email %></li>
+          <li><%= booking.planet.location %></li>
+          <li><%= booking.start_date %></li>
+          <li><%= booking.planet.price %></li>
+          <li><%= booking.planet.available_places %></li>
+          <li><%#= image_tag cl_image_path booking.planet.photos.first.key %></li>
+        </div>
+      </ul>
     <% end %>
-  </tbody>
-</table>
+</div>
+<div>
+  <h4>Past bookings</h4>
+    <% @past_bookings.each do |booking| %>
+    <div>
+        <ul><%= booking.planet.name %>
+    </div>
+      <div>
+          <li><%= booking.user.email %></li>
+          <li><%= booking.planet.location %></li>
+          <li><%= booking.start_date %></li>
+          <li><%= booking.planet.price %></li>
+          <li><%= booking.planet.available_places %></li>
+        </div>
+      </ul>
+    <% end %>
+</div>
+
+<div>
+  <% current_user.planets.all.each do |planet| %>
+    <ul><h4><%= "My bookings for #{planet.name}"  %></h4>
+    <% planet.bookings.all.each do |booking|%>
+      <div>
+        <li><%= booking.user.email %></li>
+        <li><%= booking.planet.location %></li>
+        <li><%= booking.start_date %></li>
+        <li><%= booking.planet.price %></li>
+        <li><%= booking.planet.available_places %></li>
+      </div>
+     </ul>
+    <% end  %>
+  <% end  %>
+</div>

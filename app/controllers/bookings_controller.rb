@@ -2,16 +2,18 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:edit, :update, :destroy]
 
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings
+    @upcomming_bookings = current_user.bookings.upcomming
+    @past_bookings = current_user.bookings.past
   end
 
   def create
     @planet = Planet.find(params[:planet_id])
-    @booking = Booking.new
+    @booking = Booking.new(booking_params)
     @booking.planet = @planet
     @booking.user = current_user
     if @booking.save
-      redirect_to bookings_path(@planet)
+      redirect_to bookings_path
     else
       render "planets/show", status: :unprocessable_entity
     end
@@ -36,7 +38,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:comment, :grade)
+    params.require(:booking).permit(:start_date)
   end
 
   def set_booking
