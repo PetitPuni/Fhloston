@@ -1,6 +1,5 @@
 <div><h1>My Bookings</h1>
 
-
 <div>
   <h4>Upcomming bookings</h4>
     <% @upcomming_bookings.each do |booking| %>
@@ -37,7 +36,7 @@
 
 <div>
   <% current_user.planets.all.each do |planet| %>
-    <h4><%= "My bookings for #{planet.name}"  %></h4>
+    <ul><h4><%= "My bookings for #{planet.name}"  %></h4>
     <% planet.bookings.all.each do |booking|%>
       <div>
         <li><%= booking.user.email %></li>
@@ -46,6 +45,7 @@
         <li><%= booking.planet.price %></li>
         <li><%= booking.planet.available_places %></li>
       </div>
+     </ul>
     <% end  %>
   <% end  %>
 </div>

@@ -1,0 +1,16 @@
+<h1>Hello <%= current_user.email %></h1>
+
+<%= current_user.photo.attached? ? image_tag(cl_image_path current_user.photo.key, :transformation=>[
+  {:gravity=>"face", :height=>200, :width=>200, :crop=>"crop"},
+  {:radius=>"max"},
+  {:width=>75, :crop=>"scale"}
+  ]) : image_tag('avatar.png')  %>
+
+<p><%= current_user.username %></p>
+<p><%= current_user.description %></p>
+<div class="container">
+  <%= render 'form_user' %>
+</div>
+
+<h2>My reservation</h2>
+

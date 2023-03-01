@@ -1,7 +1,7 @@
 class PlanetsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   before_action :params_planet, only: [:update, :create]
-  before_action :set_planet, only: [:destroy, :show, :edit]
+  before_action :set_planet, only: [:destroy, :show, :edit, :update]
 
   def index
     @planets = Planet.all
@@ -26,14 +26,30 @@ class PlanetsController < ApplicationController
   end
 
   def edit
+    def edit
+      @planet = Planet.find(params[:id])
+      if @planet.user != current_user
+        redirect_to planet_path(@planet), notice: "You have no permission to edit this planet"
+      end
+    end
+    
   end
 
   def update
     @planet.update(params_planet)
-    redirect_to planet_path(@planet)
+    if @planet.user != current_user
+      redirect_to planet_path(@planet), notice: "You don't have the permission to edit this planet"
+    else
+      if @planet.update(params_planet)
+        redirect_to planet_path(@planet)
+      else
+        render :new, status: :unprocessable_entity
+      end
+    end
   end
 
   def destroy
+    @planet.photo.purge
     @planet.delete
     redirect_to planets_path
   end
