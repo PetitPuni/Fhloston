@@ -21,14 +21,13 @@ user2 = User.create!(
     name: Faker::Space.star,
     planet_type: ['Carbon planet', 'Gas dwarf', 'Desert planet', 'Gas giant', 'Helium planet', 'Ice giant', 'Iron planet', 'Lava planet'].sample,
     summary: Faker::Restaurant.description,
-    inhabitants: [1..7_000_000_000].sample,
-    available_places: [1..5].sample,
+    inhabitants: rand(1..2_000_000_000),
+    available_places: rand(1..5),
     location: Faker::Space.galaxy,
     catch_phrase: Faker::Company.catch_phrase,
-    price: [1..20_000],
+    price: rand(1..20_000),
     user: [user1, user2].sample
   )
 end
-
 
 puts 'DB finished'

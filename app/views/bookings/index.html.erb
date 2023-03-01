@@ -1,18 +1,28 @@
-<h1>My Bookings</h1>
+<div><h1>My Bookings</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Planets</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bookings.each do |booking| %>
-      <tr>
-        <td><%= booking.user.email %></td>
-        <td><%= booking.planet.name %></td>
-        </td>
-      </tr>
+
+<div>
+  <h4>Upcomming bookings</h4>
+    <% @upcomming_bookings.each do |booking| %>
+      <ul>
+        <li><%= booking.planet.name %></li>
+        <li><%= booking.user.email %></li>
+        <li><%= booking.planet.location %></li>
+        <li><%= booking.planet.price %></li>
+        <li><%#= image_tag cl_image_path booking.planet.photos.first.key %></li>
+        </li>
+      </ul>
     <% end %>
-  </tbody>
-</table>
+</div>
+  <h4>Past bookings</h4>
+    <% @past_bookings.each do |booking| %>
+      <ul>
+        <li><%= booking.user.email %></li>
+        <li><%= booking.planet.name %></li>
+        </li>
+      </ul>
+    <% end %>
+</div>
+<%# Should see all of present user bookings %>
+<%# Should see all of present past user bookings %>
+<%# Should see all bookings depending on the his planet %>
