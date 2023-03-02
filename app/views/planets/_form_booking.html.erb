@@ -1,4 +1,4 @@
 <%= simple_form_for([@planet, @booking]) do |f| %>
-<%= f.input :start_date %>
-<%= f.submit 'Confirm Reservation', class: 'btn btn-success' %>
+<%= f.input :start_date, class: 'start-date' %>
+<%= f.submit 'Confirm Reservation', class: 'btn btn-primary rounded w-100' %>
 <% end %>
