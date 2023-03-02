@@ -13,9 +13,10 @@
     <header>
       <%= render "shared/navbar" %>
       <%= image_tag 'astroboy.svg', alt: "astonaute", class: "astroboy" %>
-      <%= render "shared/searchbar" %>
+      <%= render "shared/searchbar" if current_page?(controller: "planets", action: "index") || current_page?('/planets') %>
     </header>
     <%= render "shared/flashes" %>
+
     <%= yield %>
   </body>
 </html>

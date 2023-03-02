@@ -1,10 +1,11 @@
+
 <div class="page-container">
   <div class="title">
     <h1>Escape to your own private planet with our out-of-this-world experience!</h1>
   </div>
   <div class="card-grid">
     <% @planets.each do |planet| %>
-    <div class="card-item">
+    <div class="card-item", data-controller="card-item", data-action="click->card-item#searchbar">
       <div class="card-img">
         <% if planet.photos.attached? %>
           <% planet.photos.each do |photo| %>
