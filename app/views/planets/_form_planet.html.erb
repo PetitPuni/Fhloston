@@ -1,4 +1,4 @@
-<%= simple_form_for(planet) do |f| %>
+<div class="container"><%= simple_form_for(planet) do |f| %>
   <%= f.input :name, error: 'Planet name is mandatory, please specify one.', placeholder: 'Milky Way' %>
   <%= f.input :catch_phrase, error: 'A catch phrase is mandatory, please specify one.', placeholder: 'Experience our out of this world lodge in Centaurus.'  %>
   <%= f.input :summary, error: 'A summary of your rental is mandatory, please specify one.', placeholder: 'This fully furnished, modern home boasts panoramic views of an otherworldly landscape and is equipped with all the amenities you need for a comfortable stay.' %>
@@ -10,3 +10,4 @@
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit 'Save your planet', class: 'btn btn-success' %>
 <% end %>
+</div>

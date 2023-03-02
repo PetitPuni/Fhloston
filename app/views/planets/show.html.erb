@@ -1,40 +1,79 @@
-<h1><%= @planet.name %></h1>
-
-<div class="image">
-  <% if @planet.photos.attached? %>
-    <% @planet.photos.each do |photo| %>
-      <%= image_tag cl_image_path(photo.key, height: 300, crop: :fill) %>
-    <% end %>
-  <% else %>
-    <%= image_tag asset_path('default-planet.jpg') %>
-  <% end %>
-</div>
 
 <div class="container">
-  <p>Summary: <%= @planet.summary %></p>
-  <p>Type: <%= @planet.planet_type %></p>
-  <p>Inhabitants: <%= @planet.inhabitants %></p>
-  <p>Available places: <%= @planet.available_places %></p>
-  <p>Location in the known universe: <%= @planet.location %></p>
-  <p>Price: <%= @planet.price %></p>
+
+  <div class="row">
+    <div class="col-8">
+      <h1><%= @planet.name %></h1>
+
+
+  <div class="row">
+          <% if @planet.photos.attached? %>
+            <div class="col-8">
+              <%= cl_image_tag(@planet.photos[0].key, crop: :fill, class: 'first') %>
+            </div>
+            <div class="col-4">
+              <% @planet.photos.each_with_index do |photo, index| %>
+                <% if index > 0 %>
+                    <%= cl_image_tag(photo.key, crop: :fill, class: 'other') %>
+                <% end %>
+              <% end %>
+            </div>
+            <%# index == 0 ? photo_class = 'first' : photo_class = 'other' %>
+              <%#= image_tag cl_image_path(photo.key, height: 300, crop: :fill), class: photo_class %>
+            <%# end %>
+          <% else %>
+            <%= image_tag asset_path('default-planet.jpg') %>
+          <% end %>
+
+
+
+  </div>
+
+
+
+          <div class="container">
+    <p>Summary: <%= @planet.summary %></p>
+    <p>Type: <%= @planet.planet_type %></p>
+    <p>Inhabitants: <%= @planet.inhabitants %></p>
+    <p>Available places: <%= @planet.available_places %></p>
+    <p>Location in the known universe: <%= @planet.location %></p>
+
+    </div>
+    </div>
+
+
+
+
+
+     <div class="border rounded p-4 my-2 show-form col-4">
+        <div class="">
+        <p><%= sum1 = @planet.price %> € per day</p>
+
+          <%= render "form_booking" %>
+        <div class="p-4 mt-2">
+          <p>Enjoy a 2 days stay for only <%= @planet.price * 2%> €</p>
+          <p>Galaxy border taxes <%= sum2 = @planet.price / 2%> €</p>
+          <p>Inland taxes <%= sum3 = @planet.price / 4%> €</p>
+            <p class="border-top pt-2">Total <%= sum1 + sum2 + sum3%> €</p>
+        </div>
+        </div>
+      </div>
+  </div>
+   <%= link_to "Delete your planet",
+                        planet_path(@planet),
+                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }
+            %>
+
+            <% if current_user == @planet.user %>
+              <%= link_to "Edit", edit_planet_path(@planet) %>
+            <% end %>
+
+            <%= link_to "Back", planets_path %>
+            <%= link_to "New Reviews", new_planet_review_path(@planet) %>
+
+            <% @planet.bookings.each do |booking| %>
+              <% if booking.review %>
+                <%= booking.review.comment %>
+              <% end %>
+          <% end %>
 </div>
-
-<%= render "form_booking" %>
-
-<%= link_to "Delete your planet",
-            planet_path(@planet),
-            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }
-%>
-
-<% if current_user == @planet.user %>
-  <%= link_to "Edit", edit_planet_path(@planet) %>
-<% end %>
-
-<%= link_to "Back", planets_path %>
-<%= link_to "New Reviews", new_planet_review_path(@planet) %>
-
-<% @planet.bookings.each do |booking| %>
-  <% if booking.review %>
-    <%= booking.review.comment %>
-  <% end %>
-<% end %>
