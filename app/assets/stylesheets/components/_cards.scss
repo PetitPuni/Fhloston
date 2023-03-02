@@ -1,26 +1,26 @@
 .title {
-    display: flex;
-    justify-content: center;
+    margin-bottom: 20px;
+    text-align: center;
     color: black;
 }
 
 .card-grid {
-    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 5px;
     justify-items: center;
     align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
 .card-item {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 1.125rem;
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    width: 100%;
-    max-width: 400px;
+  position: relative;
+  margin: 20px;
+  width: calc(33.33% - 40px);
+  max-width: 300px;
+  overflow: hidden;
+  text-align: center;
   }
 
 .img-p {
@@ -38,3 +38,12 @@
     font-size: 1rem;
     line-height: 1.25;
 }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+  }

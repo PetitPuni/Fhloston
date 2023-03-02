@@ -1,27 +1,24 @@
-.planet-cards{
-  display: flex;
-  gap: 50px;
-  flex-direction: row;
-}
-
-.searchbar{
-  width: 1vw;
+.searchbar {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  padding-top: 20px;
-  margin-left: 450px;
-  margin-right: 450x;
 }
 
-.planet-cards{
+.planet-cards {
   display: flex;
-  grid-template-columns: repeat(8, 1fr);
-  justify-items: center;
-  align-items: center;
-  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px; /* adjust as needed */
 }
 
-.planet-size{
-  width: 75px;
+.planet-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  text-align: center;
+}
+
+.planet-size {
+  width: 80px;
+  height: 80px;
 }
