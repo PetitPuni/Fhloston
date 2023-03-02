@@ -18,6 +18,11 @@ class BookingsController < ApplicationController
       render "planets/show", status: :unprocessable_entity
     end
   end
+  def show
+    @booking = Booking.find(params[:id])
+    @planet = @booking.planet
+    @reviews = @planet.reviews
+  end
 
   def edit
   end
@@ -31,7 +36,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking.delete
+    @booking.destroy
     redirect_to bookings_path, notice: 'Booking was successfully destroyed.'
   end
 

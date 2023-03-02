@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:edit, :update, :index, :destroy, :show]
   resources :users, only: [:show, :update]
+  get 'bookings/new', to: 'bookings#new', as: 'new_booking'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
