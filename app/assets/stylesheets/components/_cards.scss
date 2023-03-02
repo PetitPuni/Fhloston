@@ -23,8 +23,14 @@
   text-align: center;
   }
 
+.card-item:hover {
+    transform: translateY(-10px);
+}
+
 .img-p {
     border-radius: 5px;
+    overflow: hidden;
+    position:relative;
 }
 
 .card-title{
@@ -38,12 +44,3 @@
     font-size: 1rem;
     line-height: 1.25;
 }
-
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    text-align: center;
-  }

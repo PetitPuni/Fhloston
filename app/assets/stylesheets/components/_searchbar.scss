@@ -1,3 +1,8 @@
+.scrolling-wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
 .searchbar {
   display: flex;
   justify-content: center;
@@ -5,9 +10,8 @@
 
 .planet-cards {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 1200px; /* adjust as needed */
+  justify-content: flex-start;
+  max-width: 1200px;
 }
 
 .planet-card {
@@ -16,6 +20,10 @@
   align-items: center;
   margin: 10px;
   text-align: center;
+}
+
+.planet-card:hover {
+  transform: translateY(-10px);
 }
 
 .planet-size {

@@ -2,16 +2,13 @@
   <div class="title">
     <h1>Escape to your own private planet with our out-of-this-world experience!</h1>
   </div>
-  <div class="btn-flat">
-    <%= link_to "NEW PLANET", new_planet_path %>
-  </div>
   <div class="card-grid">
     <% @planets.each do |planet| %>
     <div class="card-item">
       <div class="card-img">
         <% if planet.photos.attached? %>
           <% planet.photos.each do |photo| %>
-            <%= image_tag(cl_image_path(photo.key, height: 300, crop: :fill)) %>
+            <%= image_tag(cl_image_path(photo.key, crop: :fill)) %>
           <% end %>
         <% else %>
           <%= image_tag(asset_path('default-planet.jpg'), class: "img-p") %>
