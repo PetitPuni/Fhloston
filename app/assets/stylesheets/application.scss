@@ -17,5 +17,12 @@ body {
 }
 
 .page-container {
-  padding: 100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+body {
+cursor: url('https://allophysique.com/docs/nsi/mini_projet_spaceinvader/images/ship.png'), auto;
 }

@@ -1,13 +1,23 @@
-<div class="container"><%= simple_form_for(planet) do |f| %>
+
+<%= simple_form_for(planet) do |f| %>
+  <div class="mt-3 inline-input-1-3" >
   <%= f.input :name, error: 'Planet name is mandatory, please specify one.', placeholder: 'Milky Way' %>
   <%= f.input :catch_phrase, error: 'A catch phrase is mandatory, please specify one.', placeholder: 'Experience our out of this world lodge in Centaurus.'  %>
+  </div>
   <%= f.input :summary, error: 'A summary of your rental is mandatory, please specify one.', placeholder: 'This fully furnished, modern home boasts panoramic views of an otherworldly landscape and is equipped with all the amenities you need for a comfortable stay.' %>
+  <div class="mt-3 inline-input-1-1" >
   <%= f.input :planet_type, error:'A planet type is mandatory, please specify one.', collection: ['Carbon planet', 'Gas dwarf', 'Desert planet', 'Gas giant', 'Helium planet', 'Ice giant', 'Iron planet', 'Lava planet'], prompt: 'Select a type' %>
-  <%= f.input :inhabitants, as: :integer, input_html: { min: '1', max: '2000000000', step: '100000' }, error:'The number of inhabitants should be a number', placeholder: 'Choose the number of inhabitants on your planet.'%>
-  <%= f.input :available_places, error: 'Available places should be a number', as: :integer, input_html: { min: '0', max: '5', step: '1' }, placeholder: 'Choose the number of available places on your planet.' %>
   <%= f.input :location, collection: ["Triangulum", "Pinwheel", "Whirlpool", "Andromeda", "Centaurus A", "Milky Way", "Messier 83", "Hoags Object","Sunflower"], error: 'The location of your planet is mandatory, please specify one.', prompt: 'Select a location'%>
-  <%= f.input :price, placeholder: 'Choose a price for your rental', error: 'A summary of your rental is mandatory, please specify one.', as: :integer, input_html: { min: '0', max: '20000', step: '1000' } %>
+  </div>
+  <div class="mt-3 inline-input-1-1-1" >
+  <%= f.input :inhabitants, as: :integer, input_html: { min: '1', max: '2000000000', step: '100000' }, error:'The number of inhabitants should be a number', placeholder: 'Number of inhabitants'%>
+  <%= f.input :available_places, error: 'Available places should be a number', as: :integer, input_html: { min: '0', max: '5', step: '1' }, placeholder: 'Number of available places' %>
+  <%= f.input :price, placeholder: 'Price for your rental', error: 'A summary of your rental is mandatory, please specify one.', as: :integer, input_html: { min: '0', max: '20000', step: '1000' } %>
+  </div>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit 'Save your planet', class: 'btn btn-success' %>
+  <div class="mt-3 btn-inline-center">
+  <%= f.submit 'Save', class: 'btn btn-success' %>
+  <%= link_to "Cancel", root_path, class: 'btn btn-warning' %>
+  </div>
 <% end %>
 </div>

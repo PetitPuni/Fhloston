@@ -18,9 +18,6 @@
                 <% end %>
               <% end %>
             </div>
-            <%# index == 0 ? photo_class = 'first' : photo_class = 'other' %>
-              <%#= image_tag cl_image_path(photo.key, height: 300, crop: :fill), class: photo_class %>
-            <%# end %>
           <% else %>
             <%= image_tag asset_path('default-planet.jpg') %>
           <% end %>
