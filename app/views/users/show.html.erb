@@ -1,4 +1,4 @@
-<h1>Hello <%= current_user.email %></h1>
+<h1>Hello <%= current_user.username %></h1>
 
 <%= current_user.photo.attached? ? image_tag(cl_image_path current_user.photo.key, :transformation=>[
   {:gravity=>"face", :height=>200, :width=>200, :crop=>"crop"},
