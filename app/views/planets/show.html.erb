@@ -1,40 +1,47 @@
-    <h1><%= @planet.name %></h1>
+<div class="container-fluid">
+  <div class="image">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-6">
+          <div class="card">
+              <div class="card-body">
 
-    <div class="image">
-    <% if @planet.photos.attached? %>
-      <% @planet.photos.each do |photo| %>
-        <%=  image_tag cl_image_path(photo.key, height: 300, crop: :fill)%>
-        <% end %>
-    <% else %>
-      <%=  image_tag asset_path( 'default-planet.jpg') %>
-    <% end %>
-  </div>
+                <h1><%= @planet.name %></h1>
+                  <% if @planet.photos.attached? %>
+                    <% @planet.photos.each do |photo| %>
+                      <%=  image_tag cl_image_path(photo.key, height: 300, crop: :fill)%>
+                      <% end %>
+                  <% else %>
+                    <%=  image_tag(asset_path('default-planet.jpg'), class:"image-show") %>
+                    <div class="container">
+                      <p>Summary: <%= @planet.summary%></p>
+                      <p>Type: <%= @planet.planet_type%></p>
+                      <p>Inhabitants: <%= @planet.inhabitants%></p>
+                      <p>Available places : <%= @planet.available_places%></p>
+                      <p>Location in the known universe: <%= @planet.location%></p>
+                      <p>Price: <%= @planet.price %></p>
+                          <%= render "form_booking" %>
+                          <%= link_to "Delete your planet",
+                              planet_path(@planet),
+                              data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } if policy(@planet).destroy?
+                            %>
 
-    <div class="container">
-      <p>Summary: <%= @planet.summary%></p>
-      <p>Type: <%= @planet.planet_type%></p>
-      <p>Inhabitants: <%= @planet.inhabitants%></p>
-      <p>Available places : <%= @planet.available_places%></p>
-      <p>Location in the known universe: <%= @planet.location%></p>
-      <p>Price: <%= @planet.price %></p>
+
+                          <% if policy(@planet).edit? %>
+                          <%= link_to "Edit", edit_planet_path %>
+                          <% end %>
+                          <%= link_to "Back", planets_path %>
+                          <%= link_to "New Reviews", new_planet_review_path(@planet) %>
+
+                          <% @planet.bookings.each do |booking| %>
+                            <% if booking.review %>
+                              <%= booking.review.comment %>
+                            <% end %>
+                          <% end %>
+                    </div>
+                  <% end %>
+              </div>
+          </div>
+      </div>
     </div>
-
-
-<%= render "form_booking" %>
-<%= link_to "Delete your planet",
-    planet_path(@planet),
-    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } if policy(@planet).destroy?
-  %>
-
-
-<% if policy(@planet).edit? %>
-<%= link_to "Edit", edit_planet_path %>
-<% end %>
-<%= link_to "Back", planets_path %>
-<%= link_to "New Reviews", new_planet_review_path(@planet) %>
-
-<% @planet.bookings.each do |booking| %>
-  <% if booking.review %>
-    <%= booking.review.comment %>
-  <% end %>
-<% end %>
+  </div>
+</div>
