@@ -10,11 +10,12 @@
 }
 
 .planet-cards{
-  grid-template-columns: 8*1fr;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  justify-items: center;
+  align-items: center;
+  width: 100%;
 }
-
 
 .planet-size{
   width: 75px;
