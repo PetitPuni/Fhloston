@@ -1,15 +1,18 @@
 .planet-cards{
   display: flex;
   gap: 50px;
+  flex-direction: row;
 }
 
 .searchbar{
   width: 1vw;
+  display: flex;
 }
 
 .planet-cards{
-  display: grid;
   grid-template-columns: 8*1fr;
+  display: flex;
+  justify-content: center;
 }
 
 
