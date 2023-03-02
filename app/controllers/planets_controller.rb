@@ -9,18 +9,15 @@ class PlanetsController < ApplicationController
 
   def show
     @booking = Booking.new
-    authorize @planet
   end
 
   def new
     @planet = Planet.new
-    authorize @planet
   end
 
   def create
     @planet = Planet.new(params_planet)
     @planet.user = current_user
-    authorize @planet
     if @planet.save!
       redirect_to planet_path(@planet)
     else
@@ -30,7 +27,7 @@ class PlanetsController < ApplicationController
 
   def edit
       @planet = Planet.find(params[:id])
-      authorize @planet
+
       if @planet.user != current_user
         redirect_to planet_path(@planet), notice: "You have no permission to edit this planet"
       end
@@ -38,7 +35,6 @@ class PlanetsController < ApplicationController
 
   def update
     @planet.update(params_planet)
-    authorize @planet
     if @planet.user != current_user
       redirect_to planet_path(@planet), notice: "You don't have the permission to edit this planet"
     else
@@ -53,7 +49,6 @@ class PlanetsController < ApplicationController
   def destroy
     @planet.photo.purge
     @planet.delete
-    authorize @planet
   end
 
   private

@@ -7,7 +7,6 @@ class ReviewsController < ApplicationController
     @planet = Planet.find(params[:planet_id])
     if Review.user_has_reservation_for_planet?(@user, @planet)
       @review = Review.new(planet: @planet)
-      authorize @review
     else
       redirect_to @planet, alert: "You can't leave a review for this planet without a reservation."
     end
@@ -20,7 +19,7 @@ class ReviewsController < ApplicationController
     if booking.present?
       @review = Review.new(review_params)
       @review.booking = booking
-      authorize @review
+
       if @review.save
         redirect_to planet_path(@planet)
       else
@@ -32,11 +31,9 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    authorize @review
   end
 
   def update
-    authorize @review
     if @review.update(review_params)
       redirect_to planet_path(@review.planet)
     else
@@ -45,7 +42,6 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    authorize @review
     @review.destroy
     redirect_to planet_path(@review.planet)
   end
