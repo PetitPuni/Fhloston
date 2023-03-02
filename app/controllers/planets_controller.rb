@@ -4,7 +4,12 @@ class PlanetsController < ApplicationController
   before_action :set_planet, only: [:destroy, :show, :edit, :update]
 
   def index
-    @planets = Planet.all
+    if params[:query].present?
+      search = params[:query]
+      @planets = Planet.search_planet(search)
+    else
+      @planets = Planet.all
+    end
   end
 
   def show
