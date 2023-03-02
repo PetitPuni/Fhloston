@@ -62,16 +62,23 @@
 
   <% end %>
 
-            <% if current_user == @planet.user %>
-              <%= link_to "Edit", edit_planet_path(@planet) %>
-            <% end %>
+<div class="planet-actions">
+  <% if current_user == @planet.user %>
+    <%= link_to "Edit", edit_planet_path(@planet), class: "btn btn-primary" %>
+  <% end %>
 
-            <%= link_to "Back", planets_path %>
-            <%= link_to "New Reviews", new_planet_review_path(@planet) %>
+  <%= link_to "Back", planets_path, class: "btn btn-secondary" %>
+  <%= link_to "New Reviews", new_planet_review_path(@planet), class: "btn btn-primary" %>
+</div>
 
-            <% @planet.bookings.each do |booking| %>
-              <% if booking.review %>
-                <%= booking.review.comment %>
-              <% end %>
-          <% end %>
+<div class="planet-reviews">
+  <% @planet.bookings.each do |booking| %>
+    <% if booking.review %>
+      <div class="booking-review">
+      <p style="background-color: #f8f8f8; padding: 10px; border: 1px solid #ccc; color: black;"><%= booking.review.comment %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
 </div>

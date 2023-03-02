@@ -1,34 +1,67 @@
-<% if @planet %>
-  <h1>Leave a Review for <%= @planet.name %></h1>
-<% else %>
-  <h1>Leave a Review</h1>
-<% end %>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Leave a Review</title>
+  <style>
+    .stars input[type="radio"] {
+      display: none;
+    }
+    .stars label {
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .stars input[type="radio"]:checked + label {
+      color: #FFD700;
+    }
+    .stars input[type="radio"]:checked ~ input[type="radio"] + label {
+      color: #FFD700;
+    }
+  </style>
+</head>
+<body>
+  <div style="display: flex; justify-content: center;">
+    <div style="border: 1px solid #ccc; padding: 20px; max-width: 600px; text-align: center;">
+      <% if @planet %>
+        <h1 style="font-size: 36px;">Leave a Review for <%= @planet.name %></h1>
+      <% else %>
+        <h1 style="font-size: 36px;">Leave a Review</h1>
+      <% end %>
 
-<%= form_with model: [@planet, @review] do |form| %>
-  <% if @review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
-      <ul>
-        <% @review.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+      <%= form_with model: [@planet, @review], html: { style: 'margin-top: 20px;' } do |form| %>
+        <% if @review.errors.any? %>
+          <div id="error_explanation" style="color: red;">
+            <h2 style="font-size: 24px;"><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+            <ul style="font-size: 20px;">
+              <% @review.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+
+        <div style="margin-bottom: 20px;">
+          <%= form.label :comment, style: 'font-size: 20px;' %>
+          <%= form.text_area :comment, style: 'font-size: 20px; width: 100%;' %>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <%= form.label :grade, style: 'font-size: 20px;' %>
+          <div class="stars" style="display: inline-block; margin-left: 10px;">
+            <% (1..5).each do |n| %>
+              <input type="radio" id="star<%= n %>" name="review[grade]" value="<%= n %>" <%= (@review.grade == n) ? 'checked' : '' %> />
+              <label for="star<%= n %>">&#9733;</label>
+            <% end %>
+          </div>
+        </div>
+
+        <%= form.submit 'Submit Review', class: 'btn-primary', style: 'font-size: 20px; margin-top: 20px;' %>
+
+         <% if @planet %>
+        <%= link_to 'Back To The Planet', planet_path(@planet), class: 'btn-primary', style: 'font-size: 20px; margin-top: 20px; background-color: red; color: white;' %>
+        <% end %>
+      <% end %>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :comment %>
-    <%= form.text_area :comment %>
   </div>
-
-  <div>
-    <%= form.label :grade %>
-    <%= form.number_field :grade, min: '0', max: '5', step: '1', placeholder: 'rate your stay' %>
-
-
-  </div>
-
-  <%= form.submit %>
-<% end %>
-
-<%= link_to 'Back', planet_path(@planet) %>
+</body>
+</html>
