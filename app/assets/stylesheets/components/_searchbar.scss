@@ -7,10 +7,15 @@
 .searchbar{
   width: 1vw;
   display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 20px;
+  margin-left: 450px;
+  margin-right: 450x;
 }
 
 .planet-cards{
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(8, 1fr);
   justify-items: center;
   align-items: center;
