@@ -1,40 +1,36 @@
-
-<div class="title"><h1>Escape to your own private planet with our out-of-this-world experience!</h1></div>
-<div class="btn-flat"><%= link_to "NEW PLANET", new_planet_path %></div>
-<div class = "card-grid">
+<div class="title">
+  <h1>Escape to your own private planet with our out-of-this-world experience!</h1>
+</div>
+<div class="btn-flat">
+  <%= link_to "NEW PLANET", new_planet_path %>
+</div>
+<div class="card-grid">
   <% @planets.each do |planet| %>
   <div class="card-item">
     <div class="card-title">
       <h3><%= link_to planet.name, planet_path(planet) %></h3>
     </div>
-    <div class="catch">
-  <% end %>
-
-<h1>Escape to your own private planet with our out-of-this-world experience!</h1>
-
-<%= link_to "new planet ", new_planet_path %>
-
-<% @planets.each do |planet| %>
-  <div class="card">
-    <div class="title">
-      <h3><%= link_to planet.name, planet_path(planet) %></h3>
-    </div>
     <div class="card-img">
       <% if planet.photos.attached? %>
         <% planet.photos.each do |photo| %>
-          <%=  image_tag cl_image_path(photo.key, height: 300, crop: :fill)%>
-          <% end %>
+          <%= image_tag(cl_image_path(photo.key, height: 300, crop: :fill)) %>
+        <% end %>
       <% else %>
-        <%=  image_tag asset_path( 'default-planet.jpg') %>
+        <%= image_tag(asset_path('default-planet.jpg')) %>
+
       <% end %>
     </div>
     <div class="card-content">
       <p><strong>Type</strong>: <%= planet.planet_type %></p>
       <p><strong>Location</strong>: <%= planet.location %></p>
-      <p><strong>Price</strong>: <%= planet.price%>€</p>
+
+      <p><strong>Price</strong>: <%= planet.price %>€</p>
+
       <p><strong>N° available places</strong>: <%= planet.available_places %></p>
     </div>
     <div class="footer">
     </div>
   </div>
-<% end %>
+  <% end %>
+</div>
+
