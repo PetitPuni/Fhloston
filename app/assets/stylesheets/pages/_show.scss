@@ -24,10 +24,24 @@
     width: 100%;
   }
 
-  .first {
+  .photo1 {
     // display: grid;
     // grid-template-columns: 1fr;
     // grid-gap: 20px;
     // grid-row: 2 / 3;
     width: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .photo2 {
+    border-top-right-radius: 10px;
+  }
+
+  .photo3 {
+    border-bottom-right-radius: 10px;
+  }
+
+  .other-photos{
+    border-top-right-radius: 10px;
   }
