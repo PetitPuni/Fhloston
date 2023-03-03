@@ -1,7 +1,7 @@
 .show-form{
   background-color: white;
   position: sticky;
-  top: 0;
+  top: 66;
   border-radius: 24px !important;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   height: fit-content;
@@ -68,4 +68,12 @@
 
   .card-booking{
     border-radius: 50px;
+  }
+
+  .box-show{
+    color: black;
+  }
+
+  .show-page{
+    margin-top: 8px;
   }
