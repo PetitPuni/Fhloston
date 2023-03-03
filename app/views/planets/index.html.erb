@@ -8,7 +8,7 @@
     <div class="card-item", data-controller="card-item", data-action="click->card-item#searchbar">
       <div class="card-img">
         <% if planet.photos.attached? %>
-          <%= link_to image_tag(cl_image_path(planet.photos[0].key, height: 215, width: 230, crop: "fill")), planet_path(planet) %>
+          <%= link_to image_tag(cl_image_path(planet.photos[0].key, height: 215, width: 230, crop: "fill")), planet_path(planet), class: "img-p" %>
         <% else %>
           <%= link_to image_tag(asset_path('default-planet.jpg'), class: "img-p"), planet_path(planet) %>
         <% end %>
