@@ -1,21 +1,44 @@
-<h2>Log in</h2>
+<div class="container">
+  <h2 class="log-in">Log in</h2>
+  <div class="row">
+    <div class="col-4 border rounded p-4 my-2 show-form box-show">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
+        data: {turbo: false}) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email,
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" } %>
+          <%= f.input :password,
+                      required: false,
+                      input_html: { autocomplete: "current-password" } %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
-  data: {turbo: false}) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <div class="form-actions">
+          <%= f.button :submit, "Log in", class:'btn btn-primary'%>
+        </div>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
+    <div class="col-1"></div>
+    <div class="about-us col-7">
+      <div>
+        <h3 class="log-in">About us</h3>
+        <p>Welcome to <i>Fhloston Paradise</i>, the company that takes you on a <strong>journey beyond your wildest imagination</strong>.<br> <br>
+          Our mission is to provide a unique and unforgettable experience for travelers looking to explore the vastness of the universe and beyond.
+
+            At <i>Fhloston Paradise</i>, we believe that the universe is a <strong>playground waiting to be explored</strong>. We offer a wide range of accommodations on various planets, moons, and asteroids to cater to the diverse needs of our travelers. <br>
+            Whether you're looking for a <strong>cozy cabin on a forested moon or a luxurious floating villa on an asteroid belt, we have the perfect place for you</strong>.
+
+            Our team of experienced space travel experts works tirelessly to ensure that your journey is safe, comfortable, and filled with excitement. From booking your accommodation to providing you with a detailed itinerary, we take care of everything so that you can focus on enjoying your adventure. <br>
+
+            At <i>Fhloston Paradise</i>, <strong>we also strive to promote sustainable travel and minimize our impact on the environment</strong>. We work closely with local communities on each planet to ensure that our presence benefits the local economy and preserves the natural beauty of each destination. <br>
+
+            Join us on a journey of discovery and exploration. Book your next adventure with Fhloston Paradise and experience the universe like never before. <br> <br>
+            The Fhloston Paradise team
+        </p>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
