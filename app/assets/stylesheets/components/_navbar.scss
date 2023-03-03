@@ -6,6 +6,11 @@
   color: #FFFFFF;
 }
 
+h2 {
+  color: white;
+  padding-left: 5px;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -23,14 +28,21 @@
   border-radius: 16px;
 }
 
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-right: 180px;
+}
+
 .container-fluid {
   color: white;
 }
+
 .astroboy {
   position: absolute;
   top: 0;
   right: 0;
-  margin-top: 14px;
+  margin-top: 21px;
   margin-right: 25%;
   width: 40px;
 }
