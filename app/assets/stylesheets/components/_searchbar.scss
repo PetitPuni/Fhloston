@@ -8,6 +8,10 @@
   justify-content: center;
 }
 
+a {
+  color: white;
+}
+
 .planet-cards {
   display: flex;
   justify-content: space-between;
@@ -23,10 +27,12 @@
   align-items: center;
   margin: 10px;
   text-align: center;
+  color: white !important;
 }
 
 .planet-card:hover {
   transform: translateY(-10px);
+  color: white;
 }
 
 .planet-size {
