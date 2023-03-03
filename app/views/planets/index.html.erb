@@ -13,14 +13,18 @@
           <%= link_to image_tag(asset_path('default-planet.jpg'), class: "img-p"), planet_path(planet) %>
         <% end %>
       </div>
+      <div class="card-subtitle">
+        <p><%= planet.planet_type %></p>
+      </div>
       <div class="card-title">
         <h3><%= link_to planet.name, planet_path(planet) %></h3>
       </div>
       <div class="card-content">
-        <p><strong>Type</strong>: <%= planet.planet_type %></p>
-        <p><strong>Location</strong>: <%= planet.location %></p>
-        <p><strong>Price</strong>: <%= planet.price %>€</p>
-        <p><strong>N° available places</strong>: <%= planet.available_places %></p>
+        <p><%= planet.location %></p>
+        <p>Available Places:<%= planet.available_places %></p>
+      </div>
+      <div class="card-price">
+        <p><strong><%= planet.price %>€</strong>/per stay</p>
       </div>
       <div class="footer">
       </div>
