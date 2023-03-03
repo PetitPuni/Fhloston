@@ -13,7 +13,7 @@
     <header>
       <%= render "shared/navbar" %>
       <%= image_tag 'astroboy.svg', alt: "astonaute", class: "astroboy" %>
-      <%= render "shared/searchbar" if current_page?(controller: "planets", action: "index") || current_page?('/planets') %>
+      <%= render "shared/searchbar" if  current_page?('/planets') || current_page?('/') %> <%# condition for display none search bar %>
     </header>
     <%= render "shared/flashes" %>
 
