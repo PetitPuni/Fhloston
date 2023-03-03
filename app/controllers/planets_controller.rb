@@ -52,8 +52,10 @@ class PlanetsController < ApplicationController
   end
 
   def destroy
-    @planet.photo.purge
-    @planet.delete
+    @planet.photos.purge
+    @planet.destroy
+    redirect_to planets_path
+
   end
 
   private

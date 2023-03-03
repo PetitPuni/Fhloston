@@ -16,7 +16,6 @@ class Planet < ApplicationRecord
   # validates :price, presence: true, numericality: { only_integer: true, in: (1..20_000) }
 
 
-
   include PgSearch::Model
   pg_search_scope :search_planet,
                   against: %i[name planet_type available_places location summary],
