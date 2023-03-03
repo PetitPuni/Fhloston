@@ -1,6 +1,7 @@
 .show-form{
   background-color: white;
   position: sticky;
+  top: 0;
   border-radius: 24px !important;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   height: fit-content;
@@ -45,6 +46,11 @@
   .other-photos{
     border-top-right-radius: 10px;
   }
+
+
+  .dropdown-menu{
+    z-index: 1 !important;
+}
 
   .card-header{
     font-weight: bold;
