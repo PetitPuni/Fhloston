@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
   <title>Leave a Review</title>
   <style>
     .stars input[type="radio"] {
@@ -21,7 +20,7 @@
 </head>
 <body>
   <div style="display: flex; justify-content: center;">
-    <div style="border: 1px solid #ccc; padding: 20px; max-width: 600px; text-align: center;">
+    <div style="border: 1px solid #ccc; padding: 20px; margin: 20px; max-width: 600px; text-align: center;">
       <% if @planet %>
         <h1 style="font-size: 36px;">Leave a Review for <%= @planet.name %></h1>
       <% else %>
@@ -55,10 +54,10 @@
           </div>
         </div>
 
-        <%= form.submit 'Submit Review', class: 'btn-primary', style: 'font-size: 20px; margin-top: 20px;' %>
+        <%= form.submit 'Submit Review', class: 'btn btn-primary', style: 'font-size: 20px; margin-top: 20px;' %>
 
          <% if @planet %>
-        <%= link_to 'Back To The Planet', planet_path(@planet), class: 'btn-primary', style: 'font-size: 20px; margin-top: 20px; background-color: red; color: white;' %>
+        <%= link_to 'Back', planet_path(@planet), class: 'btn btn-warning',style: 'font-size: 20px; margin-top: 20px' %>
         <% end %>
       <% end %>
     </div>
