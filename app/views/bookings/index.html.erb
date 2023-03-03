@@ -1,55 +1,68 @@
 <div class="container">
   <h1 class="text-center my-5">My Bookings</h1>
 
-  <div class="row">
-    <div class="col-md-6">
-      <h2 class="mb-4">Upcoming Bookings</h2>
-
-      <% if @upcomming_bookings.any? %>
-        <% @upcomming_bookings.each do |booking| %>
-          <div class="card mb-3">
-            <div class="card-header bg-primary text-white">
-              <%= booking.planet.name %>
-            </div>
-            <div class="card-body">
-              <ul class="list-unstyled">
-                <li><strong>Location:</strong> <%= booking.planet.location %></li>
-                <li><strong>Start date:</strong> <%= booking.start_date %></li>
-                <li><strong>Price:</strong> <%= number_to_currency(booking.planet.price) %></li>
-              </ul>
-              <%= link_to "Delete this Booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-            </div>
-          </div>
-        <% end %>
-      <% else %>
-        <p>You don't have any upcoming bookings.</p>
-      <% end %>
+  <% console %>
+  <% if @bookings.blank? %>
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="mb-4">Hurry up ! Go make a <%= link_to 'booking', root_path %></h2>
+      </div>
     </div>
+  <% else %>
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="mb-4">Upcoming Bookings</h2>
 
-    <div class="col-md-6">
-      <h2 class="mb-4">Past Bookings</h2>
-
-      <% if @past_bookings %>
-        <% @past_bookings.each do |booking| %>
-          <div class="card mb-3">
-            <div class="card-header bg-secondary text-white">
-              <%= booking.planet.name %>
+        <% if @upcomming_bookings.any? %>
+          <% @upcomming_bookings.each do |booking| %>
+            <div class="card mb-3">
+              <div class="card-header bg-primary text-white">
+                <%= booking.planet.name %>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled">
+                  <li><strong>Location:</strong> <%= booking.planet.location %></li>
+                  <li><strong>Start date:</strong> <%= booking.start_date %></li>
+                  <li><strong>Price:</strong> <%= number_to_currency(booking.planet.price) %></li>
+                </ul>
+                <%= link_to "Delete this booking",
+                        booking_path(booking),
+                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                        class: "btn btn-primary rounded w-50 btn-booking"
+                %>
+              </div>
             </div>
-            <div class="card-body">
-              <ul class="list-unstyled">
-                <li><strong>Location:</strong> <%= booking.planet.location %></li>
-                <li><strong>Start date:</strong> <%= booking.start_date %></li>
-                <li><strong>Price:</strong> <%= number_to_currency(booking.planet.price) %></li>
-              </ul>
-            </div>
-          </div>
+          <% end %>
+        <% else %>
+          <p>You don't have any upcoming bookings.</p>
         <% end %>
+      </div>
+      <% if @past_bookings.blank? %>
+
       <% else %>
-        <p>You don't have any past bookings.</p>
+        <div class="col-md-6">
+          <h2 class="mb-4">Past Bookings</h2>
+
+          <% if @past_bookings %>
+            <% @past_bookings.each do |booking| %>
+              <div class="card mb-3">
+                <div class="card-header bg-secondary text-white">
+                  <%= booking.planet.name %>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled">
+                    <li><strong>Location:</strong> <%= booking.planet.location %></li>
+                    <li><strong>Start date:</strong> <%= booking.start_date %></li>
+                    <li><strong>Price:</strong> <%= number_to_currency(booking.planet.price) %></li>
+                  </ul>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <p>You don't have any past bookings.</p>
+          <% end %>
+        </div>
       <% end %>
-    </div>
-  </div>
+    </div >
+  <% end %>
 </div>
-
-
-
