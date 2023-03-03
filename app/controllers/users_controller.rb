@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   rescue_from ActionController::InvalidAuthenticityToken, with: :handle_invalid_authenticity_token
   rescue_from ActiveStorage::IntegrityError, with: :handle_integrity_error
+  skip_before_action :protect_from_forgery, raise: false
+
+
 
   def show
   end
