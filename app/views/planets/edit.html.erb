@@ -1,5 +1,4 @@
-<h1>hello edit article</h1>
-
-<%= render "form_planet", planet: @planet%>
-
-
+<div class="container mt-3">
+  <h1>Edit : <%= @planet.name %></h1>
+  <%= render 'form_planet', planet: @planet %>
+</div>
