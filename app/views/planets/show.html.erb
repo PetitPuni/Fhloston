@@ -51,16 +51,17 @@
         </div>
       </div>
   </div>
+  <div class="d-flex p-2 flexbox-show">
+      <% if @planet.user == current_user %>
+      <%= link_to "Delete your planet",
+                            planet_path(@planet),
+                            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                            class: 'btn btn-primary rounded'
+                %>
 
-  <% if @planet.user == current_user %>
-   <%= link_to "Delete your planet",
-                        planet_path(@planet),
-                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }
-            %>
+      <% else %>
 
-  <% else %>
-
-  <% end %>
+      <% end %>
 
 <div class="planet-actions">
   <% if current_user == @planet.user %>

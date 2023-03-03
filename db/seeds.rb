@@ -23,18 +23,102 @@ user2.username = "explorateur#{user2.id}"
 user2.description = "add a short description in your profile"
 user2.save
 
-50.times do
+
   Planet.create!(
     name: Faker::Space.star,
-    planet_type: ['Carbon planet', 'Gas dwarf', 'Desert planet', 'Gas giant', 'Helium planet', 'Ice giant', 'Iron planet', 'Lava planet'].sample,
+    planet_type: 'Carbon planet',
     summary: Faker::Restaurant.description,
     inhabitants: rand(1..2_000_000_000),
     available_places: rand(1..5),
     location: Faker::Space.galaxy,
     catch_phrase: Faker::Company.catch_phrase,
     price: rand(1..20_000),
-    user: [user1, user2].sample
+    user: user1
   )
-end
+
+  Planet.create!(
+    name: Faker::Space.star,
+    planet_type: 'Gas dwarf',
+    summary: Faker::Restaurant.description,
+    inhabitants: rand(1..2_000_000_000),
+    available_places: rand(1..5),
+    location: Faker::Space.galaxy,
+    catch_phrase: Faker::Company.catch_phrase,
+    price: rand(1..20_000),
+    user: user1
+  )
+
+  Planet.create!(
+    name: Faker::Space.star,
+    planet_type: 'Desert planet',
+    summary: Faker::Restaurant.description,
+    inhabitants: rand(1..2_000_000_000),
+    available_places: rand(1..5),
+    location: Faker::Space.galaxy,
+    catch_phrase: Faker::Company.catch_phrase,
+    price: rand(1..20_000),
+    user: user1
+  )
+
+  Planet.create!(
+    name: Faker::Space.star,
+    planet_type: 'Gas giant',
+    summary: Faker::Restaurant.description,
+    inhabitants: rand(1..2_000_000_000),
+    available_places: rand(1..5),
+    location: Faker::Space.galaxy,
+    catch_phrase: Faker::Company.catch_phrase,
+    price: rand(1..20_000),
+    user: user1
+  )
+
+  Planet.create!(
+    name: Faker::Space.star,
+    planet_type: 'Helium planet',
+    summary: Faker::Restaurant.description,
+    inhabitants: rand(1..2_000_000_000),
+    available_places: rand(1..5),
+    location: Faker::Space.galaxy,
+    catch_phrase: Faker::Company.catch_phrase,
+    price: rand(1..20_000),
+    user: user2
+  )
+
+  Planet.create!(
+    name: Faker::Space.star,
+    planet_type: 'Ice giant',
+    summary: Faker::Restaurant.description,
+    inhabitants: rand(1..2_000_000_000),
+    available_places: rand(1..5),
+    location: Faker::Space.galaxy,
+    catch_phrase: Faker::Company.catch_phrase,
+    price: rand(1..20_000),
+    user: user2
+  )
+
+  Planet.create!(
+    name: Faker::Space.star,
+    planet_type: 'Iron planet',
+    summary: Faker::Restaurant.description,
+    inhabitants: rand(1..2_000_000_000),
+    available_places: rand(1..5),
+    location: Faker::Space.galaxy,
+    catch_phrase: Faker::Company.catch_phrase,
+    price: rand(1..20_000),
+    user: user2
+  )
+
+  Planet.create!(
+    name: Faker::Space.star,
+    planet_type: 'Lava planet',
+    summary: Faker::Restaurant.description,
+    inhabitants: rand(1..2_000_000_000),
+    available_places: rand(1..5),
+    location: Faker::Space.galaxy,
+    catch_phrase: Faker::Company.catch_phrase,
+    price: rand(1..20_000),
+    user: user2
+  )
+
 
 puts 'DB finished'

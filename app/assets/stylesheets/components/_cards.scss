@@ -20,12 +20,13 @@
   max-width: 300px;
   overflow: hidden;
   text-align: center;
-  background-color: white;
+  background-color: #eeedff;
   border-radius: 9px;
   }
 
-.card-item .title {
-  color: black;
+.card-item p {
+  text-align: left;
+  margin-left: 10px;
 }
 
 .card-item:hover {
@@ -33,21 +34,31 @@
 }
 
 .img-p {
-    border-radius: 5px;
     overflow: hidden;
     position:relative;
     z-index: 2;
+    width: 100%;
+}
+
+.card-subtitle {
+  color: #3C3878;
+  font-weight: 700;
+  font-size: 18px;
 }
 
 .card-title{
-    margin: 20px 0 10px;
     font-size: 1.2rem;
     text-decoration: inherit;
     color: inherit;
+    text-align: left;
+    margin-left: 10px;
 }
 
 .card-content {
     font-size: 1rem;
-    line-height: 1.25;
     color: black;
+}
+.card-price {
+  font-size: 20px;
+  color: black;
 }
