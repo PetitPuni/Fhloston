@@ -2,12 +2,12 @@ body  {
     height: 100%;
     background: radial-gradient(ellipse, #1B2735 0%, #090A0F 100%);
     overflow:auto; 
-    z-index: -4;
     background-repeat: repeat;
     background-size: cover;
 }
 
 #stars {
+    z-index: -4;
     width: 2px;
     height: 2px;
     animation: animStar 20s linear infinite;
