@@ -13,7 +13,7 @@
     <header class="sticky-header">
       <%= render "shared/navbar" %>
       <%= image_tag 'astroboy.svg', alt: "astonaute", class: "astroboy" %>
-      <%= render "shared/searchbar" %>
+      <%= render "shared/searchbar" if  current_page?('/planets') || current_page?('/') %> <%# condition for display none search bar %>
       <%= render "shared/background" %>
     </header>
     <%= render "shared/flashes" %>

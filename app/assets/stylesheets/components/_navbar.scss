@@ -1,5 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
+  position: sticky;
   background: #302D60;
   background: #3C3878;
   color: #FFFFFF;
@@ -31,6 +32,10 @@ h2 {
   display: flex;
   justify-content: center;
   margin-right: 180px;
+}
+
+.container-fluid {
+  color: white;
 }
 
 .astroboy {

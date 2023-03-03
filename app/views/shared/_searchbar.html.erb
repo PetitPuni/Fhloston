@@ -2,36 +2,36 @@
   <div class="searchbar">
     <div class="planet-cards">
       <div class="planet-card">
-        <%= image_tag "p-carbon.svg", class: "planet-size" %>
-        <p>Planet type</p>
+        <%= link_to image_tag( "p-carbon.svg", class: "planet-size"), planets_path(query: "carbon") %>
+        <%= link_to "Carbon", planets_path(query: "carbon") %>
       </div>
       <div class="planet-card">
-        <%= image_tag "p-gas-dwarf.svg", class: "planet-size"%>
-        <p>Planet type</p>
+        <%= link_to image_tag("p-gas-dwarf.svg", class: "planet-size"), planets_path(query: "Gas dwarf")%>
+        <%= link_to "Gas-dwarf", planets_path(query: "Gas dwarf") %>
       </div>
       <div class="planet-card">
-        <%= image_tag "p-desert.svg", class: "planet-size" %>
-        <p>Planet type</p>
+        <%= link_to image_tag("p-desert.svg", class: "planet-size"), planets_path(query: "Desert") %>
+        <%= link_to "Desert", planets_path(query: "Desert") %>
       </div>
       <div class="planet-card">
-        <%=image_tag "p-gas-giant.svg", class: "planet-size" %>
-        <p>Planet type</p>
+        <%=link_to image_tag("p-gas-giant.svg", class: "planet-size"), planets_path(query: "Gas giant") %>
+        <%= link_to "Gas-giant", planets_path(query: "Gasgiant") %>
       </div>
       <div class="planet-card">
-        <%= image_tag "p-helium.svg", class: "planet-size" %>
-        <p>Planet type</p>
+        <%= link_to image_tag( "p-helium.svg", class: "planet-size"), planets_path(query: "Helium") %>
+        <%= link_to "Helium", planets_path(query: "Helium") %>
       </div>
       <div class="planet-card">
-        <%=image_tag "p-ice.svg", class: "planet-size" %>
-        <p>Planet type</p>
+        <%=link_to image_tag("p-ice.svg", class: "planet-size"), planets_path(query: "Ice") %>
+        <%= link_to "Ice", planets_path(query: "Ice") %>
       </div>
       <div class="planet-card">
-        <%= image_tag "p-iron.svg", class: "planet-size" %>
-        <p>Planet type</p>
+        <%= link_to image_tag( "p-iron.svg", class: "planet-size"), planets_path(query: "Iron") %>
+        <%= link_to "Iron", planets_path(query: "Iron") %>
       </div>
       <div class="planet-card">
-        <%= image_tag "p-lava.svg", class: "planet-size" %>
-        <p>Planet type</p>
+        <%= link_to image_tag( "p-lava.svg", class: "planet-size"), planets_path(query: "Lava") %>
+        <%= link_to "Lava", planets_path(query: "Lava") %>
       </div>
     </div>
   </div>

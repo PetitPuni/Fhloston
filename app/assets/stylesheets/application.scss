@@ -10,10 +10,15 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/show";
 
 body {
   background-color: #000000;
   color: white;
+}
+
+a{
+  text-decoration: none;
 }
 
 .page-container {
