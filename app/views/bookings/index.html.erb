@@ -7,7 +7,7 @@
 
       <% if @upcomming_bookings.any? %>
         <% @upcomming_bookings.each do |booking| %>
-          <div class="card mb-3">
+          <div class="card mb-3 card-booking">
             <div class="card-header bg-primary text-white">
               <%= booking.planet.name %>
             </div>
@@ -17,7 +17,7 @@
                 <li><strong>Start date:</strong> <%= booking.start_date %></li>
                 <li><strong>Price:</strong> <%= number_to_currency(booking.planet.price) %></li>
               </ul>
-              <%= link_to "Delete this Booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+              <%= link_to "Delete this Booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary rounded w-50 btn-booking" %>
             </div>
           </div>
         <% end %>
@@ -31,7 +31,7 @@
 
       <% if @past_bookings %>
         <% @past_bookings.each do |booking| %>
-          <div class="card mb-3">
+          <div class="card mb-3 card-booking">
             <div class="card-header bg-secondary text-white">
               <%= booking.planet.name %>
             </div>
@@ -52,19 +52,4 @@
 </div>
 
 
-<div>
-  <% current_user.planets.all.each do |planet| %>
-    <ul>
-      <h4><%= "My bookings for #{planet.name}" %></h4>
-      <% planet.bookings.all.each do |booking| %>
-        <div>
-          <li><%= booking.user.email %></li>
-          <li><%= booking.planet.location %></li>
-          <li><%= booking.start_date %></li>
-          <li><%= booking.planet.price %></li>
-          <li><%= booking.planet.available_places %></li>
-        </div>
-      <% end %>
-    </ul>
-  <% end %>
-</div>
+

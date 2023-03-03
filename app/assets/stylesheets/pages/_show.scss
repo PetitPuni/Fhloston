@@ -47,6 +47,25 @@
     border-top-right-radius: 10px;
   }
 
+
   .dropdown-menu{
     z-index: 1 !important;
+}
+
+  .card-header{
+    font-weight: bold;
+    font-size: large;
+  }
+
+  .list-unstyled{
+    text-align: center;
+  }
+
+  .btn-booking{
+    margin-left:25%;
+    margin-right:25%;
+  }
+
+  .card-booking{
+    border-radius: 50px;
   }
