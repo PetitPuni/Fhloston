@@ -6,20 +6,20 @@
       <h1><%= @planet.name %></h1>
 
 
-  <div class="row">
-          <% if @planet.photos.attached? %>
-            <div class="col-8">
-              <%= cl_image_tag(@planet.photos[0].key, crop: :fill, class: 'photo1') %>
-            </div>
-              <div class="col-4">
-                <% @planet.photos[1..].each_with_index do |photo, index| %>
-                <%= cl_image_tag(photo.key, crop: :fill, class: "other photo#{index+2}") %>
-                <% end %>
-              </div>
-          <% else %>
-            <%= image_tag asset_path('default-planet.jpg') %>
-          <% end %>
-  </div>
+      <div class="row">
+              <% if @planet.photos.attached? %>
+                <div class="col-8">
+                  <%= cl_image_tag(@planet.photos[0].key, crop: :fill, class: 'photo1') %>
+                </div>
+                  <div class="col-4">
+                    <% @planet.photos[1..].each_with_index do |photo, index| %>
+                    <%= cl_image_tag(photo.key, crop: :fill, class: "other photo#{index+2}") %>
+                    <% end %>
+                  </div>
+              <% else %>
+                <%= image_tag asset_path('default-planet.jpg'), class:"default-picture" %>
+              <% end %>
+    </div>
 
 
 
