@@ -10,7 +10,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
-    <header>
+    <header class="sticky-header">
       <%= render "shared/navbar" %>
       <%= image_tag 'astroboy.svg', alt: "astonaute", class: "astroboy" %>
       <%= render "shared/searchbar" %>

@@ -1,7 +1,7 @@
 .title {
     margin-bottom: 20px;
     text-align: center;
-    color: black;
+    color: white;
 }
 
 .card-grid {
@@ -21,6 +21,9 @@
   max-width: 300px;
   overflow: hidden;
   text-align: center;
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 9px;
   }
 
 .card-item:hover {
@@ -43,4 +46,5 @@
 .card-content {
     font-size: 1rem;
     line-height: 1.25;
+    color: black;
 }

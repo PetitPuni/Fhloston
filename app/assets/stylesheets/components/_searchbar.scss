@@ -10,8 +10,11 @@
 
 .planet-cards {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   max-width: 1200px;
+  background-color: #3C3878;
+  border-radius: 5px;
+  border-top: 10px;
 }
 
 .planet-card {
