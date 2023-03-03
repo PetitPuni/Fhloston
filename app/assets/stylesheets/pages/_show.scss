@@ -1,7 +1,7 @@
 .show-form{
   background-color: white;
-  position: sticky;
-  top: 66;
+  position: sticky !important;
+  top: 67px;
   border-radius: 24px !important;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   height: fit-content;
@@ -78,3 +78,7 @@
   .show-page{
     margin-top: 8px;
   }
+
+.default-picture{
+  z-index: 1;
+}
