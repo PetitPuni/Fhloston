@@ -1,7 +1,7 @@
 .show-form{
   background-color: white;
-  position: sticky;
-  top: 66;
+  position: sticky !important;
+  top: 67px;
   border-radius: 24px !important;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   height: fit-content;
@@ -31,20 +31,24 @@
     // grid-template-columns: 1fr;
     // grid-gap: 20px;
     // grid-row: 2 / 3;
+    position: sticky;
     width: 100%;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
   }
 
   .photo2 {
+    position: sticky;
     border-top-right-radius: 10px;
   }
 
   .photo3 {
+    position: sticky;
     border-bottom-right-radius: 10px;
   }
 
   .other-photos{
+    position: sticky;
     border-top-right-radius: 10px;
   }
 
@@ -78,3 +82,11 @@
   .show-page{
     margin-top: 8px;
   }
+
+.default-picture{
+  z-index: 1;
+}
+
+.flexbox-show{
+  gap: 10px 20px;
+}

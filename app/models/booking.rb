@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :planet
-  has_one :review
+  has_one :review, dependent: :destroy
 
 
   scope :upcomming, -> { where('start_date >= ?', DateTime.now) }
