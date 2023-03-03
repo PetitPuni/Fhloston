@@ -51,27 +51,29 @@
         </div>
       </div>
   </div>
+  <div class="d-flex p-2 flexbox-show">
+      <% if @planet.user == current_user %>
+      <%= link_to "Delete your planet",
+                            planet_path(@planet),
+                            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                            class: 'btn btn-primary rounded'
+                %>
 
-  <% if @planet.user == current_user %>
-   <%= link_to "Delete your planet",
-                        planet_path(@planet),
-                        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }
-            %>
+      <% else %>
 
-  <% else %>
+      <% end %>
 
-  <% end %>
+                <% if current_user == @planet.user %>
+                  <%= link_to "Edit", edit_planet_path(@planet), class: 'btn btn-primary rounded' %>
+                <% end %>
 
-            <% if current_user == @planet.user %>
-              <%= link_to "Edit", edit_planet_path(@planet) %>
-            <% end %>
+                <%= link_to "Back", planets_path, class: 'btn btn-primary rounded'%>
+                <%= link_to "New Reviews", new_planet_review_path(@planet), class: 'btn btn-primary rounded' %>
 
-            <%= link_to "Back", planets_path %>
-            <%= link_to "New Reviews", new_planet_review_path(@planet) %>
-
-            <% @planet.bookings.each do |booking| %>
-              <% if booking.review %>
-                <%= booking.review.comment %>
+                <% @planet.bookings.each do |booking| %>
+                  <% if booking.review %>
+                    <%= booking.review.comment %>
+                  <% end %>
               <% end %>
-          <% end %>
+    </div>
 </div>
