@@ -38,6 +38,7 @@
     overflow: hidden;
     position:relative;
     z-index: 2;
+    width: 100%;
 }
 
 .card-subtitle {
@@ -62,3 +63,4 @@
 .card-price {
   font-size: 20px;
   color: black;
+}
