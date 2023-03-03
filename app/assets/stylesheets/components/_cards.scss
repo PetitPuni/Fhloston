@@ -22,7 +22,6 @@
   overflow: hidden;
   text-align: center;
   background-color: white;
-  opacity: 0.8;
   border-radius: 9px;
   }
 
@@ -34,6 +33,7 @@
     border-radius: 5px;
     overflow: hidden;
     position:relative;
+    z-index: 2;
 }
 
 .card-title{
