@@ -1,7 +1,6 @@
 .title {
     margin-bottom: 20px;
     text-align: center;
-    color: white;
 }
 
 .card-grid {
@@ -24,6 +23,10 @@
   background-color: white;
   border-radius: 9px;
   }
+
+.card-item .title {
+  color: black;
+}
 
 .card-item:hover {
     transform: translateY(-10px);
