@@ -31,20 +31,24 @@
     // grid-template-columns: 1fr;
     // grid-gap: 20px;
     // grid-row: 2 / 3;
+    position: sticky;
     width: 100%;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
   }
 
   .photo2 {
+    position: sticky;
     border-top-right-radius: 10px;
   }
 
   .photo3 {
+    position: sticky;
     border-bottom-right-radius: 10px;
   }
 
   .other-photos{
+    position: sticky;
     border-top-right-radius: 10px;
   }
 
@@ -81,4 +85,8 @@
 
 .default-picture{
   z-index: 1;
+}
+
+.flexbox-show{
+  gap: 10px 20px;
 }
