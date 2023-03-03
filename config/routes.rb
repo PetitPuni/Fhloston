@@ -9,9 +9,6 @@ Rails.application.routes.draw do
   resources :planets do
     resources :bookings, only: [:create]
     resources :reviews, only: [:new, :create]
-    member do
-      
-    end
   end
   resources :bookings, only: [:edit, :update, :index, :destroy, :show]
   resources :users, only: [:show, :update]
