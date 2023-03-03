@@ -18,6 +18,11 @@ class BookingsController < ApplicationController
       render "planets/show", status: :unprocessable_entity
     end
   end
+  def show
+    @booking = Booking.find(params[:id])
+    @planet = @booking.planet
+    @reviews = @planet.reviews
+  end
 
   def edit
   end
