@@ -6,10 +6,10 @@
       <% if current_user.photo.attached? %>
         <%= image_tag(cl_image_path(current_user.photo.key,
           transformation: [
-            {gravity: "face", height: 400, width: 400, crop: "crop"},
+            {gravity: "face", height: 200, width: 200, crop: "crop"},
             {radius: "max"},
             {width: 150, crop: "scale"}
-          ]), class: "rounded-circle shadow-lg" ) %>
+          ]), class: "rounded-circle shadow-lg avatar-profile" ) %>
       <% else %>
         <%= image_tag("avatar.png", class: "rounded-circle shadow-lg") %>
       <% end %>
