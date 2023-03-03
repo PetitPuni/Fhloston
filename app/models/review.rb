@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  belongs_to :booking
+  belongs_to :booking 
   has_one :planet, through: :booking
 
   validates :comment, presence: true
