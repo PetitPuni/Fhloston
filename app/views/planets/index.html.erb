@@ -8,7 +8,7 @@
     <div class="card-item", data-controller="card-item", data-action="click->card-item#searchbar">
       <div class="card-img">
         <% if planet.photos.attached? %>
-          <%= link_to image_tag(cl_image_path(planet.photos[0].key, height: 215, width: 230, crop: "fill")), planet_path(planet), class: "img-p" %>
+          <%= link_to image_tag(cl_image_path(planet.photos[0].key, height: 215, crop: "fill")), planet_path(planet), class: "img-p"%>
         <% else %>
           <%= link_to image_tag(asset_path('default-planet.jpg'), class: "img-p"), planet_path(planet) %>
         <% end %>
@@ -20,8 +20,8 @@
         <h3><%= link_to planet.name, planet_path(planet) %></h3>
       </div>
       <div class="card-content">
-        <p><%= planet.location %></p>
-        <p>Available Places:<%= planet.available_places %></p>
+        <p><strong>System: </strong><%= planet.location %></p>
+        <p><strong>Available Places: </strong><%= planet.available_places %></p>
       </div>
       <div class="card-price">
         <p><strong><%= planet.price %>€</strong>/per stay</p>
