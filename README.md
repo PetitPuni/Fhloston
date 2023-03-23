@@ -1,6 +1,6 @@
 Welcome to Fhloston Paradise, the company that takes you on a journey beyond your wildest imagination. Our mission is to provide a unique and unforgettable experience for travelers looking to explore the vastness of the universe and beyond. 
 
-Fhloston Paradise is a one week project where we had to mimic AirBnB. We had a lot of fun doing this project and we tried to implemant a lot of features just to test them. 
+Fhloston Paradise is a one week project where we had to mimic AirBnB. We had a lot of fun doing this project and we tried to implement a lot of features just to test them. 
 
 The result is a fun webpage.
 
